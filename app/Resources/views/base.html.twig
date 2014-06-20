@@ -1,13 +1,157 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+<!doctype html>
+<html><head>
+    <meta charset="utf-8">
+    <title>{% block title %}Zerodine Dashboard{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Thomas Spycher - Zerodine">
+    <!-- stylesheets -->
+    {% stylesheets '../app/Resources/public/css/*' filter="cssrewrite" %}
+        <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+    {% endstylesheets %}
+
+    {% stylesheets
+        'http://fonts.googleapis.com/css?family=Raleway:400,300'
+        'http://fonts.googleapis.com/css?family=Open+Sans'
+        %}
+        <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+    {% endstylesheets %}
+
+    <!-- end -->
+    {% javascripts
+        "http://code.jquery.com/jquery-latest.js"
+        "http://html5shim.googlecode.com/svn/trunk/html5.js"
+        %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+        }
+    </style>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    {% block icons %}
+        <link rel="shortcut icon" href="{{ asset('../app/Resources/public/img/logo.png') }}">
+    {% endblock %}
+
+    <!-- Google Fonts call. Font Used Open Sans & Raleway -->
+    <link href="http://fonts.googleapis.com/css?family=Raleway:400,300" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#btn-blog-next").click(function () {
+                $('#blogCarousel').carousel('next')
+            });
+            $("#btn-blog-prev").click(function () {
+                $('#blogCarousel').carousel('prev')
+            });
+
+            $("#btn-client-next").click(function () {
+                $('#clientCarousel').carousel('next')
+            });
+            $("#btn-client-prev").click(function () {
+                $('#clientCarousel').carousel('prev')
+            });
+
+        });
+
+        $(window).load(function(){
+
+            $('.flexslider').flexslider({
+                animation: "slide",
+                slideshow: true,
+                start: function(slider){
+                    $('body').removeClass('loading');
+                }
+            });
+        });
+
+    </script>
+
+
+
+</head>
+<body>
+
+<div class="container">
+    {% block body %}{% endblock %}
+    {% block javascripts %}{% endblock %}
+    <!-- FIRST ROW OF BLOCKS -->
+    <div class="row">
+        <!-- TWITTER WIDGET BLOCK -->
+        <div class="col-sm-3 col-lg-3">
+            <div class="dash-unit">
+                <dtitle>Twitter Widget</dtitle>
+                <hr>
+                <div class="info-user">
+                    <span aria-hidden="true" class="li_megaphone fs2"></span>
+                </div>
+                <br>
+                <div id="jstwitter" class="clearfix">
+                    <ul id="twitter_update_list"></ul>
+                </div>
+                <script src="http://twitter.com/javascripts/blogger.js"></script><!-- Script Needed to load the Tweets -->
+                <script src="http://api.twitter.com/1/statuses/user_timeline/wrapbootstrap.json?callback=twitterCallback2&amp;count=1"></script>
+                <!-- To show your tweets replace "wrapbootstrap", in the line above, with your user. -->
+                <div class="text">
+                    <p><grey>Show your tweets here!</grey></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-3 col-lg-3">
+
+            <!-- LOCAL TIME BLOCK -->
+
+            <div class="half-unit">
+                <dtitle>Local Time</dtitle>
+                <hr>
+                <div class="clockcenter">
+                    <digiclock>12:45:25</digiclock>
+                </div>
+            </div>
+            <div class="half-unit">
+                <dtitle>Server Uptime</dtitle>
+                <hr>
+                <div class="cont">
+                    <p><img src="{{ asset('../app/Resources/public/img/up.png') }}" alt=""> <bold>Up</bold> | 356ms.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div> <!-- /container -->
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+{% javascripts
+    "../app/Resources/public/js/bootstrap.js"
+    "../app/Resources/public/js/lineandbars.js"
+    "../app/Resources/public/js/dash-charts.js"
+    "../app/Resources/public/js/gauge.js"
+    "../app/Resources/public/js/noty/jquery.noty.js"
+    "../app/Resources/public/js/noty/layouts/top.js"
+    "../app/Resources/public/js/noty/layouts/topLeft.js"
+    "../app/Resources/public/js/noty/layouts/topRight.js"
+    "../app/Resources/public/js/noty/layouts/topCenter.js"
+    "../app/Resources/public/js/noty/themes/default.js"
+    "../app/Resources/public/js/jquery.flexslider.js"
+    "../app/Resources/public/js/admin.js"
+    %}
+    <script src="{{ asset_url }}" type="text/javascript"></script>
+{% endjavascripts %}
+
+</body></html>
