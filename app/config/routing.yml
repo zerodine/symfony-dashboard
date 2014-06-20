@@ -1,0 +1,5 @@
+zerodine_dashboard:
+    resource: "@ZerodineDashboardBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
