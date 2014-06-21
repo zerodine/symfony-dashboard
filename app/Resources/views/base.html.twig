@@ -84,53 +84,6 @@
 
 <div class="container">
     {% block body %}{% endblock %}
-    {% block javascripts %}{% endblock %}
-    <!-- FIRST ROW OF BLOCKS -->
-    <div class="row">
-        <!-- TWITTER WIDGET BLOCK -->
-        <div class="col-sm-3 col-lg-3">
-            <div class="dash-unit">
-                <dtitle>Twitter Widget</dtitle>
-                <hr>
-                <div class="info-user">
-                    <span aria-hidden="true" class="li_megaphone fs2"></span>
-                </div>
-                <br>
-                <div id="jstwitter" class="clearfix">
-                    <ul id="twitter_update_list"></ul>
-                </div>
-                <script src="http://twitter.com/javascripts/blogger.js"></script><!-- Script Needed to load the Tweets -->
-                <script src="http://api.twitter.com/1/statuses/user_timeline/wrapbootstrap.json?callback=twitterCallback2&amp;count=1"></script>
-                <!-- To show your tweets replace "wrapbootstrap", in the line above, with your user. -->
-                <div class="text">
-                    <p><grey>Show your tweets here!</grey></p>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="col-sm-3 col-lg-3">
-
-            <!-- LOCAL TIME BLOCK -->
-
-            <div class="half-unit">
-                <dtitle>Local Time</dtitle>
-                <hr>
-                <div class="clockcenter">
-                    <digiclock>12:45:25</digiclock>
-                </div>
-            </div>
-            <div class="half-unit">
-                <dtitle>Server Uptime</dtitle>
-                <hr>
-                <div class="cont">
-                    <p><img src="{{ asset('../app/Resources/public/img/up.png') }}" alt=""> <bold>Up</bold> | 356ms.</p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
 </div> <!-- /container -->
 
 <!-- Le javascript

@@ -1,0 +1,57 @@
+{% macro twitter() %}
+        <dtitle>Twitter Widget</dtitle>
+        <hr>
+        <div class="info-user">
+            <span aria-hidden="true" class="li_megaphone fs2"></span>
+        </div>
+        <br>
+        <div id="jstwitter" class="clearfix">
+            <ul id="twitter_update_list"></ul>
+        </div>
+        <script src="http://twitter.com/javascripts/blogger.js"></script><!-- Script Needed to load the Tweets -->
+        <script src="http://api.twitter.com/1/statuses/user_timeline/wrapbootstrap.json?callback=twitterCallback2&amp;count=1"></script>
+        <!-- To show your tweets replace "wrapbootstrap", in the line above, with your user. -->
+        <div class="text">
+            <p><grey>Show your tweets here!</grey></p>
+        </div>
+{% endmacro %}
+
+{% macro time(box) %}
+    <dtitle>{{ box.source.title }}</dtitle>
+    <hr>
+    <div class="clockcenter">
+        <digiclock>12:45:25</digiclock>
+    </div>
+{% endmacro %}
+
+{% macro up(box) %}
+    <dtitle>{{ box.source.title }}</dtitle>
+    <hr>
+    <div class="cont">
+        <p><img src="{{ asset('../app/Resources/public/img/up.png') }}" alt=""> <bold>Up</bold> | .</p>
+    </div>
+{% endmacro %}
+
+{% macro linesofcode(box) %}
+    <dtitle>{{ box.source.title }}</dtitle>
+    <hr>
+    <div class="cont">
+        <p>{{ box.source.value|number_format(0, '.', '\'') }}</p>
+    </div>
+{% endmacro %}
+
+{% macro logo(box) %}
+    <dtitle>{{ box.source.title }}</dtitle>
+    <hr>
+    <div class="cont">
+        <p><img src="{{ asset(box.source.value) }}" alt="Picture" /></p>
+    </div>
+{% endmacro %}
+
+{% macro unknown(box) %}
+    <dtitle>Unknown Box</dtitle>
+    <hr>
+    <div class="cont">
+        <p>The box with the name {{ box.macroname }} is unknown</p>
+    </div>
+{% endmacro %}

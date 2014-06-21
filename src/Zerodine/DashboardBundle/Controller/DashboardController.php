@@ -6,6 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\BrowserKit\Request;
+use Zerodine\DashboardBundle\Boxes\Box;
+use Zerodine\DashboardBundle\Boxes\Sources\LinesofcodeSource;
+use Zerodine\DashboardBundle\Boxes\Sources\LogoSource;
+use Zerodine\DashboardBundle\Boxes\Sources\TimeSource;
 
 class DashboardController extends Controller
 {
@@ -15,6 +19,12 @@ class DashboardController extends Controller
      */
     public function mainAction()
     {
-        return array();
+        $boxes = array();
+        $boxes[] = Box::getInstance(new LogoSource())->setStyle(Box::HALFUNIT);
+        $boxes[] = Box::getInstance(new TimeSource())->setStyle(Box::HALFUNIT);
+        $boxes[] = Box::getInstance(new TimeSource())->setStyle(Box::DASHUNIT);
+        $boxes[] = Box::getInstance(new LinesofcodeSource())->setStyle(Box::DASHUNIT);
+
+        return array('boxes' => $boxes);
     }
 }
