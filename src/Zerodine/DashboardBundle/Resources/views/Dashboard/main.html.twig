@@ -13,6 +13,8 @@
         {{ boxmacros.logo(box) }}
     {% elseif box.macroname == 'linesofcode' %}
         {{ boxmacros.linesofcode(box) }}
+    {% elseif box.macroname == 'finance' %}
+        {{ boxmacros.finance(box) }}
     {% else %}
         {{ boxmacros.unknown(box) }}
     {% endif %}

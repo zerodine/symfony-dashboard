@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\BrowserKit\Request;
 use Zerodine\DashboardBundle\Boxes\Box;
+use Zerodine\DashboardBundle\Boxes\Sources\FinanceSource;
 use Zerodine\DashboardBundle\Boxes\Sources\LinesofcodeSource;
 use Zerodine\DashboardBundle\Boxes\Sources\LogoSource;
 use Zerodine\DashboardBundle\Boxes\Sources\TimeSource;
@@ -20,6 +21,8 @@ class DashboardController extends Controller
     public function mainAction()
     {
         $boxes = array();
+        $boxes[] = Box::getInstance(new FinanceSource($this->get('blackoptic.xero.client')))->setStyle(Box::DASHUNIT);
+
         $boxes[] = Box::getInstance(new TimeSource())->setStyle(Box::DASHUNIT);
 
         $boxes[] = Box::getInstance(new LogoSource())->setStyle(Box::HALFUNIT);
@@ -34,6 +37,7 @@ class DashboardController extends Controller
         $boxes[] = Box::getInstance(new TimeSource())->setStyle(Box::HALFUNIT);
         $boxes[] = Box::getInstance(new LogoSource())->setStyle(Box::HALFUNIT);
         $boxes[] = Box::getInstance(new LogoSource())->setStyle(Box::HALFUNIT);
+
 
         return array('boxes' => $boxes);
     }

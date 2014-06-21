@@ -4,8 +4,54 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0f5bf28fac35560dbdb2e597d32df056",
+    "hash": "92635784cfbf1e20848c3a2b4bbd3fb0",
     "packages": [
+        {
+            "name": "blackoptic/xerobundle",
+            "version": "dev-master",
+            "target-dir": "BlackOptic/Bundle/XeroBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/james75/XeroBundle.git",
+                "reference": "1dfcac9efa5b57ec38fcc33f39443a5f42467b36"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/james75/XeroBundle/zipball/1dfcac9efa5b57ec38fcc33f39443a5f42467b36",
+                "reference": "1dfcac9efa5b57ec38fcc33f39443a5f42467b36",
+                "shasum": ""
+            },
+            "require": {
+                "ext-openssl": "*",
+                "guzzle/guzzle": "3.*",
+                "php": ">=5.3.0",
+                "symfony/symfony": "2.*"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "BlackOptic\\Bundle\\XeroBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "James Watson"
+                }
+            ],
+            "description": "Symfony2 Bundle that creates an Guzzle client for Xero",
+            "homepage": "https://github.com/james75/XeroBundle",
+            "keywords": [
+                "Guzzle",
+                "Symfony2",
+                "accounts",
+                "xero"
+            ],
+            "time": "2013-11-08 13:55:36"
+        },
         {
             "name": "doctrine/annotations",
             "version": "v1.1.2",
@@ -299,144 +345,6 @@
             "time": "2014-05-21 19:28:51"
         },
         {
-            "name": "doctrine/dbal",
-            "version": "v2.4.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/dbal.git",
-                "reference": "fec965d330c958e175c39e61c3f6751955af32d0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/fec965d330c958e175c39e61c3f6751955af32d0",
-                "reference": "fec965d330c958e175c39e61c3f6751955af32d0",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/common": "~2.4",
-                "php": ">=5.3.2"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "3.7.*",
-                "symfony/console": "~2.0"
-            },
-            "suggest": {
-                "symfony/console": "Allows use of the command line interface"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Doctrine\\DBAL\\": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com",
-                    "homepage": "http://www.jwage.com/",
-                    "role": "Creator"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com",
-                    "homepage": "http://www.instaclick.com"
-                },
-                {
-                    "name": "Roman Borschel",
-                    "email": "roman@code-factory.org"
-                },
-                {
-                    "name": "Benjamin Eberlei",
-                    "email": "kontakt@beberlei.de"
-                }
-            ],
-            "description": "Database Abstraction Layer",
-            "homepage": "http://www.doctrine-project.org",
-            "keywords": [
-                "database",
-                "dbal",
-                "persistence",
-                "queryobject"
-            ],
-            "time": "2014-01-01 16:43:57"
-        },
-        {
-            "name": "doctrine/doctrine-bundle",
-            "version": "v1.2.0",
-            "target-dir": "Doctrine/Bundle/DoctrineBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "765b0d87fcc3e839c74817b7211258cbef3a4fb9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/765b0d87fcc3e839c74817b7211258cbef3a4fb9",
-                "reference": "765b0d87fcc3e839c74817b7211258cbef3a4fb9",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/dbal": ">=2.2,<2.5-dev",
-                "jdorn/sql-formatter": "~1.1",
-                "php": ">=5.3.2",
-                "symfony/doctrine-bridge": "~2.2",
-                "symfony/framework-bundle": "~2.2"
-            },
-            "require-dev": {
-                "doctrine/orm": ">=2.2,<2.5-dev",
-                "symfony/validator": "~2.2",
-                "symfony/yaml": "~2.2"
-            },
-            "suggest": {
-                "doctrine/orm": "The Doctrine ORM integration is optional in the bundle.",
-                "symfony/web-profiler-bundle": "to use the data collector"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.2.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Doctrine\\Bundle\\DoctrineBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                },
-                {
-                    "name": "Benjamin Eberlei",
-                    "email": "kontakt@beberlei.de"
-                }
-            ],
-            "description": "Symfony DoctrineBundle",
-            "homepage": "http://www.doctrine-project.org",
-            "keywords": [
-                "database",
-                "dbal",
-                "orm",
-                "persistence"
-            ],
-            "time": "2013-03-25 20:13:59"
-        },
-        {
             "name": "doctrine/inflector",
             "version": "v1.0",
             "source": {
@@ -553,46 +461,67 @@
             "time": "2013-01-12 18:59:04"
         },
         {
-            "name": "doctrine/orm",
-            "version": "v2.4.3",
+            "name": "guzzle/guzzle",
+            "version": "v3.9.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "8a13376d42b5ea467727ffe730aa0e14ca3c5e29"
+                "url": "https://github.com/guzzle/guzzle3.git",
+                "reference": "92d9934f2fca1da15178c91239576ae26e505e60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/8a13376d42b5ea467727ffe730aa0e14ca3c5e29",
-                "reference": "8a13376d42b5ea467727ffe730aa0e14ca3c5e29",
+                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/92d9934f2fca1da15178c91239576ae26e505e60",
+                "reference": "92d9934f2fca1da15178c91239576ae26e505e60",
                 "shasum": ""
             },
             "require": {
-                "doctrine/collections": "~1.1",
-                "doctrine/dbal": "~2.4",
-                "ext-pdo": "*",
-                "php": ">=5.3.2",
-                "symfony/console": "~2.0"
+                "ext-curl": "*",
+                "php": ">=5.3.3",
+                "symfony/event-dispatcher": "~2.1"
+            },
+            "replace": {
+                "guzzle/batch": "self.version",
+                "guzzle/cache": "self.version",
+                "guzzle/common": "self.version",
+                "guzzle/http": "self.version",
+                "guzzle/inflection": "self.version",
+                "guzzle/iterator": "self.version",
+                "guzzle/log": "self.version",
+                "guzzle/parser": "self.version",
+                "guzzle/plugin": "self.version",
+                "guzzle/plugin-async": "self.version",
+                "guzzle/plugin-backoff": "self.version",
+                "guzzle/plugin-cache": "self.version",
+                "guzzle/plugin-cookie": "self.version",
+                "guzzle/plugin-curlauth": "self.version",
+                "guzzle/plugin-error-response": "self.version",
+                "guzzle/plugin-history": "self.version",
+                "guzzle/plugin-log": "self.version",
+                "guzzle/plugin-md5": "self.version",
+                "guzzle/plugin-mock": "self.version",
+                "guzzle/plugin-oauth": "self.version",
+                "guzzle/service": "self.version",
+                "guzzle/stream": "self.version"
             },
             "require-dev": {
-                "satooshi/php-coveralls": "dev-master",
-                "symfony/yaml": "~2.1"
+                "doctrine/cache": "~1.3",
+                "monolog/monolog": "~1.0",
+                "phpunit/phpunit": "3.7.*",
+                "psr/log": "~1.0",
+                "symfony/class-loader": "~2.1",
+                "zendframework/zend-cache": "2.*,<2.3",
+                "zendframework/zend-log": "2.*,<2.3"
             },
-            "suggest": {
-                "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
-            },
-            "bin": [
-                "bin/doctrine",
-                "bin/doctrine.php"
-            ],
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.4.x-dev"
+                    "dev-master": "3.8-dev"
                 }
             },
             "autoload": {
                 "psr-0": {
-                    "Doctrine\\ORM\\": "lib/"
+                    "Guzzle": "src/",
+                    "Guzzle\\Tests": "tests/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -601,32 +530,27 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com",
-                    "homepage": "http://www.jwage.com/",
-                    "role": "Creator"
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
                 },
                 {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com",
-                    "homepage": "http://www.instaclick.com"
-                },
-                {
-                    "name": "Roman Borschel",
-                    "email": "roman@code-factory.org"
-                },
-                {
-                    "name": "Benjamin Eberlei",
-                    "email": "kontakt@beberlei.de"
+                    "name": "Guzzle Community",
+                    "homepage": "https://github.com/guzzle/guzzle/contributors"
                 }
             ],
-            "description": "Object-Relational-Mapper for PHP",
-            "homepage": "http://www.doctrine-project.org",
+            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
+            "homepage": "http://guzzlephp.org/",
             "keywords": [
-                "database",
-                "orm"
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "rest",
+                "web service"
             ],
-            "time": "2014-06-10 11:49:08"
+            "time": "2014-05-07 17:04:22"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -679,56 +603,6 @@
                 "parameters management"
             ],
             "time": "2013-12-07 10:10:39"
-        },
-        {
-            "name": "jdorn/sql-formatter",
-            "version": "v1.2.17",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jdorn/sql-formatter.git",
-                "reference": "64990d96e0959dff8e059dfcdc1af130728d92bc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jdorn/sql-formatter/zipball/64990d96e0959dff8e059dfcdc1af130728d92bc",
-                "reference": "64990d96e0959dff8e059dfcdc1af130728d92bc",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.4"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.3.x-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "lib"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jeremy Dorn",
-                    "email": "jeremy@jeremydorn.com",
-                    "homepage": "http://jeremydorn.com/"
-                }
-            ],
-            "description": "a PHP SQL highlighting library",
-            "homepage": "https://github.com/jdorn/sql-formatter/",
-            "keywords": [
-                "highlight",
-                "sql"
-            ],
-            "time": "2014-01-12 16:20:24"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -1586,9 +1460,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "blackoptic/xerobundle": 20
+    },
     "platform": {
         "php": ">=5.3.3"
     },

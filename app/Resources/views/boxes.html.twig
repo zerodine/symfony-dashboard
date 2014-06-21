@@ -40,6 +40,14 @@
     </div>
 {% endmacro %}
 
+{% macro finance(box) %}
+    <dtitle>{{ box.source.title }}</dtitle>
+    <hr>
+    <div class="cont">
+        <p>{{ box.source.value|number_format(0, '.', '\'') }}</p>
+    </div>
+{% endmacro %}
+
 {% macro logo(box) %}
     <dtitle>{{ box.source.title }}</dtitle>
     <hr>

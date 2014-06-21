@@ -17,3 +17,6 @@ parameters:
     debug_toolbar:          true
     debug_redirects:        false
     use_assetic_controller: true
+    xero_consumer_key:      <Your Consumer Key>
+    xero_consumer_secret:   <Your Consumer Secret>
+    xero_private_key:       "%kernel.root_dir%/config/xero.private.dist"
