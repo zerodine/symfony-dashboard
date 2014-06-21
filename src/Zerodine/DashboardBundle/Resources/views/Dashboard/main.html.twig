@@ -66,6 +66,10 @@
 
             {% set previous_style = box.style %}
         {% endfor %}
+        {% if previous_style == half_unit and not half_unit_count % 2 %}
+            {# if the last box was a half one and not has been closed, close it #}
+            </div>
+        {% endif %}
     </div>
 
 {% endblock %}

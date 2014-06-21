@@ -27,7 +27,13 @@ class DashboardController extends Controller
         $boxes[] = Box::getInstance(new LogoSource())->setStyle(Box::HALFUNIT);
 
         $boxes[] = Box::getInstance(new TimeSource())->setStyle(Box::DASHUNIT);
-        $boxes[] = Box::getInstance(new LinesofcodeSource())->setStyle(Box::DASHUNIT);
+        $boxes[] = Box::getInstance(new LinesofcodeSource('php'))->setStyle(Box::DASHUNIT);
+        $boxes[] = Box::getInstance(new LinesofcodeSource('python'))->setStyle(Box::DASHUNIT);
+
+        $boxes[] = Box::getInstance(new LogoSource())->setStyle(Box::HALFUNIT);
+        $boxes[] = Box::getInstance(new TimeSource())->setStyle(Box::HALFUNIT);
+        $boxes[] = Box::getInstance(new LogoSource())->setStyle(Box::HALFUNIT);
+        $boxes[] = Box::getInstance(new LogoSource())->setStyle(Box::HALFUNIT);
 
         return array('boxes' => $boxes);
     }

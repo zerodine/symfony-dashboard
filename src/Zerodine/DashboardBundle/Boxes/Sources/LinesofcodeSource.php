@@ -11,6 +11,11 @@ namespace Zerodine\DashboardBundle\Boxes\Sources;
 
 class LinesofcodeSource extends AbstractHttpSource {
 
+    protected $lang;
+
+    public function __construct($lang) {
+        $this->lang = $lang;
+    }
     public function getMacroname()
     {
         return "linesofcode";
@@ -18,13 +23,15 @@ class LinesofcodeSource extends AbstractHttpSource {
 
     public function getTitle()
     {
-        return "Lines of Code";
+        return sprintf("Lines of Code - %s", $this->lang);
     }
 
     public function getValue()
     {
         $data = $this->get('http://zerodine.com/git_repos.json');
-        #return number_format ( $data->php , 0 , '.' , '\'' );
-        return $data->php;
+        if(property_exists($data, $this->lang)) {
+            return $data->{$this->lang};
+        }
+        return 0;
     }
 }
