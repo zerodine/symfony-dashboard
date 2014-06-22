@@ -17,6 +17,14 @@ parameters:
     debug_toolbar:          true
     debug_redirects:        false
     use_assetic_controller: true
+
     xero_consumer_key:      <Your Consumer Key>
     xero_consumer_secret:   <Your Consumer Secret>
     xero_private_key:       "%kernel.root_dir%/config/xero.private.dist"
+
+    # Twitter configuration
+    twitter_username:                   zerodine
+    twitter_consumer_key:               xxxx
+    twitter_consumer_secret:            xxxx
+    twitter_oauth_access_token:         xxxx
+    twitter_oauth_access_token_secret:  xxxx

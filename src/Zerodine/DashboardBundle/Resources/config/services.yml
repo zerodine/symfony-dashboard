@@ -1,0 +1,4 @@
+services:
+    dashboard_twitter:
+        class:        Zerodine\DashboardBundle\Twitter\Twitter
+        arguments:    ["%twitter_username%", "%twitter_consumer_key%", "%twitter_consumer_secret%", "%twitter_oauth_access_token%", "%twitter_oauth_access_token_secret%"]

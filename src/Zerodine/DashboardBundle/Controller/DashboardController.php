@@ -11,6 +11,7 @@ use Zerodine\DashboardBundle\Boxes\Sources\FinanceSource;
 use Zerodine\DashboardBundle\Boxes\Sources\LinesofcodeSource;
 use Zerodine\DashboardBundle\Boxes\Sources\LogoSource;
 use Zerodine\DashboardBundle\Boxes\Sources\TimeSource;
+use Zerodine\DashboardBundle\Boxes\Sources\TwitterSource;
 
 class DashboardController extends Controller
 {
@@ -24,6 +25,7 @@ class DashboardController extends Controller
         $boxes[] = Box::getInstance(new FinanceSource($this->get('blackoptic.xero.client')))->setStyle(Box::DASHUNIT);
 
         $boxes[] = Box::getInstance(new TimeSource())->setStyle(Box::DASHUNIT);
+        $boxes[] = Box::getInstance(new TwitterSource($this->get('dashboard_twitter'), TwitterSource::FOLLOWERS))->setStyle(Box::DASHUNIT);
 
         $boxes[] = Box::getInstance(new LogoSource())->setStyle(Box::HALFUNIT);
         $boxes[] = Box::getInstance(new TimeSource())->setStyle(Box::HALFUNIT);
@@ -40,5 +42,13 @@ class DashboardController extends Controller
 
 
         return array('boxes' => $boxes);
+    }
+
+    /**
+     * @Route("/demo")
+     * @Template()
+     */
+    public function demoAction() {
+        return array();
     }
 }

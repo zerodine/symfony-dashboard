@@ -56,6 +56,30 @@
     </div>
 {% endmacro %}
 
+{% macro twitter(box) %}
+    <dtitle>{{ box.source.title }}</dtitle>
+    <hr>
+    {% if box.source.type == 'tweets' %}
+        <div class="info-user">
+            <span aria-hidden="true" class="li_megaphone fs2"></span>
+        </div>
+        <br>
+        <div id="jstwitter" class="clearfix">
+            <ul id="twitter_update_list"></ul>
+        </div>
+        <div class="text">
+            {% for tweet in box.source.value %}
+                <p><grey>{{ tweet.text }}</grey></p>
+            {% endfor %}
+        </div>
+    {% elseif box.source.type == 'followers' %}
+        <div class="cont">
+            <p><bold>{{ box.source.value|number_format(0, ',', '.') }} Followers</bold></p>
+            <p>@{{ box.source.username }}</p>
+        </div>
+    {% endif %}
+{% endmacro %}
+
 {% macro unknown(box) %}
     <dtitle>Unknown Box</dtitle>
     <hr>
