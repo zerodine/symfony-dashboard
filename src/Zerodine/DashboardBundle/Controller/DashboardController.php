@@ -22,6 +22,9 @@ class DashboardController extends Controller
     public function mainAction()
     {
         $boxes = array();
+        //$boxes[] = Box::getInstance(new LinesofcodeSource('php'))->setStyle(Box::HALFUNIT);
+        //$boxes[] = Box::getInstance(new LinesofcodeSource('php'))->setStyle(Box::HALFUNIT);
+
         $boxes[] = Box::getInstance(new TwitterSource($this->get('dashboard_twitter')))->setStyle(Box::DASHUNIT);
 
         $boxes[] = Box::getInstance(new TwitterSource($this->get('dashboard_twitter'), TwitterSource::FOLLOWERS))->setStyle(Box::HALFUNIT);

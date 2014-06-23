@@ -3,7 +3,6 @@
 
 {% block body %}
     <!-- FIRST ROW OF BLOCKS -->
-
     <div class="row">
         {% set previous_style = '' %}
         {% set half_unit_count = 0 %}
@@ -11,26 +10,24 @@
         {% for box in boxes %}
             {% if box.style == half_unit and previous_style == box.style %}
                 {# another half box #}
+                {% set half_unit_count = half_unit_count + 1 %}
                 {% if half_unit_count % 2 %}
                     </div>
                     <div class="col-sm-3 col-lg-3">
                 {% endif %}
-                {% set half_unit_count = half_unit_count + 1 %}
-                    <div class="{{ box.style }}" style="{{ box.customCss }}">
-                        {{ box(box)|raw }}
-                    </div>
+                <div class="{{ box.style }}" style="{{ box.customCss }}">
+                    {{ box(box)|raw }}
+                </div>
             {% elseif box.style == half_unit and previous_style != box.style %}
                 {# a new half-unit box #}
-                {% set half_unit_count = 0 %}
+                {% set half_unit_count = 1%}
                 <div class="col-sm-3 col-lg-3">
                     <div class="{{ box.style }}" style="{{ box.customCss }}">
                         {{ box(box)|raw }}
                     </div>
             {% elseif box.style != half_unit and previous_style == half_unit %}
                 {# closing the privious half-unit #}
-                {% if not half_unit_count % 2 %}
-                    </div>
-                {% endif %}
+                </div>
                 {% set half_unit_count = 0 %}
                 <div class="col-sm-3 col-lg-3">
                     <div class="{{ box.style }}" style="{{ box.customCss }}">
@@ -46,7 +43,6 @@
                     </div>
                 </div>
             {% endif %}
-
             {% set previous_style = box.style %}
         {% endfor %}
         {% if previous_style == half_unit and not half_unit_count % 2 %}
@@ -54,5 +50,4 @@
             </div>
         {% endif %}
     </div>
-
 {% endblock %}
