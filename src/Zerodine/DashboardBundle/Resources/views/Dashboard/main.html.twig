@@ -1,27 +1,6 @@
 {% extends '::base.html.twig' %}
 {% block title %}Zerodine Dashboard{% endblock %}
 
-
-{% macro callmacro(box) %}
-    {% import '::boxes.html.twig' as boxmacros %}
-
-    {% if box.macroname == 'time' %}
-        {{ boxmacros.time(box) }}
-    {% elseif box.macroname == 'up' %}
-        {{ boxmacros.up(box) }}
-    {% elseif box.macroname == 'logo' %}
-        {{ boxmacros.logo(box) }}
-    {% elseif box.macroname == 'linesofcode' %}
-        {{ boxmacros.linesofcode(box) }}
-    {% elseif box.macroname == 'twitter' %}
-        {{ boxmacros.twitter(box) }}
-    {% elseif box.macroname == 'finance' %}
-        {{ boxmacros.finance(box) }}
-    {% else %}
-        {{ boxmacros.unknown(box) }}
-    {% endif %}
-{% endmacro %}
-
 {% block body %}
     <!-- FIRST ROW OF BLOCKS -->
 
@@ -38,14 +17,14 @@
                 {% endif %}
                 {% set half_unit_count = half_unit_count + 1 %}
                     <div class="{{ box.style }}" style="{{ box.customCss }}">
-                        {{ _self.callmacro(box) }}
+                        {{ box(box)|raw }}
                     </div>
             {% elseif box.style == half_unit and previous_style != box.style %}
                 {# a new half-unit box #}
                 {% set half_unit_count = 0 %}
                 <div class="col-sm-3 col-lg-3">
                     <div class="{{ box.style }}" style="{{ box.customCss }}">
-                        {{ _self.callmacro(box) }}
+                        {{ box(box)|raw }}
                     </div>
             {% elseif box.style != half_unit and previous_style == half_unit %}
                 {# closing the privious half-unit #}
@@ -55,7 +34,7 @@
                 {% set half_unit_count = 0 %}
                 <div class="col-sm-3 col-lg-3">
                     <div class="{{ box.style }}" style="{{ box.customCss }}">
-                        {{ _self.callmacro(box) }}
+                         {{ box(box)|raw }}
                     </div>
                 </div>
             {% else %}
@@ -63,7 +42,7 @@
                 {% set half_unit_count = 0 %}
                 <div class="col-sm-3 col-lg-3">
                     <div class="{{ box.style }}" style="{{ box.customCss }}">
-                        {{ _self.callmacro(box) }}
+                        {{ box(box)|raw }}
                     </div>
                 </div>
             {% endif %}

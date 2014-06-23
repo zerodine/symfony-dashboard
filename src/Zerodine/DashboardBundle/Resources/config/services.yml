@@ -2,3 +2,8 @@ services:
     dashboard_twitter:
         class:        Zerodine\DashboardBundle\Twitter\Twitter
         arguments:    ["%twitter_username%", "%twitter_consumer_key%", "%twitter_consumer_secret%", "%twitter_oauth_access_token%", "%twitter_oauth_access_token_secret%"]
+
+    twig.box_extension:
+            class: Zerodine\DashboardBundle\Twig\BoxExtension
+            tags:
+                - { name: twig.extension }
