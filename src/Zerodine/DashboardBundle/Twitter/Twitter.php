@@ -37,7 +37,7 @@ class Twitter {
     public function followers() {
         $url = "followers/ids.json";
         $data = $this->call($url);
-        if ($data) {
+        if (!empty($data) and !array_key_exists('errors', $data)) {
             return count($data['ids']);
         }
 
