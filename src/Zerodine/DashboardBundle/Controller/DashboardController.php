@@ -22,7 +22,7 @@ class DashboardController extends Controller
     public function mainAction()
     {
         $boxes = array();
-        $boxes[] = Box::getInstance(new TwitterSource($this->get('dashboard_twitter'), TwitterSource::TWEETS))->setStyle(Box::DASHUNIT);
+        $boxes[] = Box::getInstance(new TwitterSource($this->get('dashboard_twitter')))->setStyle(Box::DASHUNIT);
 
         $boxes[] = Box::getInstance(new TwitterSource($this->get('dashboard_twitter'), TwitterSource::FOLLOWERS))->setStyle(Box::HALFUNIT);
         $boxes[] = Box::getInstance(new FinanceSource($this->get('blackoptic.xero.client')))->setStyle(Box::HALFUNIT);
