@@ -17,6 +17,7 @@ class Box {
 
     protected $style = null;
     protected $source = null;
+    protected $custom_css = null;
 
     public function __construct(SourceInterface $source) {
         $this->source = $source;
@@ -60,4 +61,23 @@ class Box {
     {
         return $this->source->getMacroname();
     }
+
+    /**
+     * @param null $custom_css
+     */
+    public function setCustomCss($custom_css)
+    {
+        $this->custom_css = $custom_css;
+        return $this;
+    }
+
+    /**
+     * @return null
+     */
+    public function getCustomCss()
+    {
+        return $this->custom_css;
+    }
+
+
 } 
