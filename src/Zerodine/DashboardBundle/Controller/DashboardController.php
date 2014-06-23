@@ -30,7 +30,9 @@ class DashboardController extends Controller
         $boxes[] = Box::getInstance(new LinesofcodeSource('php'))->setStyle(Box::HALFUNIT);
         $boxes[] = Box::getInstance(new LinesofcodeSource('python'))->setStyle(Box::HALFUNIT);
 
-        $boxes[] = Box::getInstance(new LogoSource())->setStyle(Box::HALFUNIT)->setCustomCss('background-color: transparent;background-image: none;border: 1px solid transparent;');
+        $boxes[] = Box::getInstance(new LogoSource('http://zerodine.com/wp-content/uploads/2014/05/zerodine_logo_wp.jpg'))
+            ->setStyle(Box::HALFUNIT)
+            ->setCustomCss('background-color: transparent;background-image: none;border: 1px solid transparent;');
         $boxes[] = Box::getInstance(new TimeSource())->setStyle(Box::HALFUNIT);
 
         // next Row

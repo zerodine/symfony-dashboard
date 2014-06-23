@@ -11,6 +11,12 @@ namespace Zerodine\DashboardBundle\Boxes\Sources;
 
 class LogoSource implements SourceInterface {
 
+    protected $url;
+
+    function __construct($url) {
+        $this->url = $url;
+    }
+
     public function getMacroname()
     {
         return "logo";
@@ -18,10 +24,10 @@ class LogoSource implements SourceInterface {
 
     public function getTitle()
     {
-        return "Zerodine";
+        return "";
     }
 
     public function getValue() {
-        return 'http://zerodine.com/wp-content/uploads/2014/05/zerodine_logo_wp.jpg';
+        return $this->url;
     }
 }
