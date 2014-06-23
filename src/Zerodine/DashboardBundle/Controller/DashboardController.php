@@ -22,24 +22,19 @@ class DashboardController extends Controller
     public function mainAction()
     {
         $boxes = array();
-        $boxes[] = Box::getInstance(new FinanceSource($this->get('blackoptic.xero.client')))->setStyle(Box::DASHUNIT);
+        $boxes[] = Box::getInstance(new TwitterSource($this->get('dashboard_twitter'), TwitterSource::TWEETS))->setStyle(Box::DASHUNIT);
 
-        $boxes[] = Box::getInstance(new TimeSource())->setStyle(Box::DASHUNIT);
-        $boxes[] = Box::getInstance(new TwitterSource($this->get('dashboard_twitter'), TwitterSource::FOLLOWERS))->setStyle(Box::DASHUNIT);
+        $boxes[] = Box::getInstance(new TwitterSource($this->get('dashboard_twitter'), TwitterSource::FOLLOWERS))->setStyle(Box::HALFUNIT);
+        $boxes[] = Box::getInstance(new FinanceSource($this->get('blackoptic.xero.client')))->setStyle(Box::HALFUNIT);
 
-        $boxes[] = Box::getInstance(new LogoSource())->setStyle(Box::HALFUNIT);
-        $boxes[] = Box::getInstance(new TimeSource())->setStyle(Box::HALFUNIT);
-        $boxes[] = Box::getInstance(new LogoSource())->setStyle(Box::HALFUNIT);
-
-        $boxes[] = Box::getInstance(new TimeSource())->setStyle(Box::DASHUNIT);
-        $boxes[] = Box::getInstance(new LinesofcodeSource('php'))->setStyle(Box::DASHUNIT);
-        $boxes[] = Box::getInstance(new LinesofcodeSource('python'))->setStyle(Box::DASHUNIT);
+        $boxes[] = Box::getInstance(new LinesofcodeSource('php'))->setStyle(Box::HALFUNIT);
+        $boxes[] = Box::getInstance(new LinesofcodeSource('python'))->setStyle(Box::HALFUNIT);
 
         $boxes[] = Box::getInstance(new LogoSource())->setStyle(Box::HALFUNIT);
         $boxes[] = Box::getInstance(new TimeSource())->setStyle(Box::HALFUNIT);
-        $boxes[] = Box::getInstance(new LogoSource())->setStyle(Box::HALFUNIT);
-        $boxes[] = Box::getInstance(new LogoSource())->setStyle(Box::HALFUNIT);
 
+        // next Row
+        $boxes[] = Box::getInstance(new LinesofcodeSource('commits', 'commits'))->setStyle(Box::HALFUNIT);
 
         return array('boxes' => $boxes);
     }

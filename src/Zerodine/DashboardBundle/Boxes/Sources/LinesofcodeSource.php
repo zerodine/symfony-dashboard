@@ -12,9 +12,11 @@ namespace Zerodine\DashboardBundle\Boxes\Sources;
 class LinesofcodeSource extends AbstractHttpSource {
 
     protected $lang;
+    protected $unit;
 
-    public function __construct($lang) {
+    public function __construct($lang, $unit = 'lines') {
         $this->lang = $lang;
+        $this->unit = $unit;
     }
     public function getMacroname()
     {
@@ -23,6 +25,9 @@ class LinesofcodeSource extends AbstractHttpSource {
 
     public function getTitle()
     {
+        if($this->unit == 'commits') {
+            return "Commits";
+        }
         return sprintf("Lines of Code - %s", $this->lang);
     }
 
@@ -34,4 +39,14 @@ class LinesofcodeSource extends AbstractHttpSource {
         }
         return 0;
     }
+
+    /**
+     * @return string
+     */
+    public function getUnit()
+    {
+        return $this->unit;
+    }
+
+
 }
