@@ -26,6 +26,7 @@ class Box {
     static function getInstance(SourceInterface $source) {
         return new self($source);
     }
+
     /**
      * @return null|\Zerodine\DashboardBundle\Boxes\SourceInterface
      */

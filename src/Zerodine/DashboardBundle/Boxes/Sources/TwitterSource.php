@@ -53,7 +53,7 @@ class TwitterSource implements SourceInterface {
         }
     }
 
-    function __construct(Twitter $twitter, $type) {
+    function __construct(Twitter $twitter, $type = TwitterSource::TWEETS) {
         $this->twitter = $twitter;
         $this->type = $type;
     }
