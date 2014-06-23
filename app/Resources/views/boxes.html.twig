@@ -36,16 +36,47 @@
     <dtitle>{{ box.source.title }}</dtitle>
     <hr>
     <div class="cont">
-        <p>{{ box.source.value|number_format(0, '.', '\'') }}</p>
+        <p><bold>{{ box.source.value|number_format(0, '.', '\'') }} {{ box.source.unit }}</bold></p>
+    </div>
+{% endmacro %}
+
+{% macro finance(box) %}
+    <dtitle>{{ box.source.title }}</dtitle>
+    <hr>
+    <div class="cont">
+        <p><bold>CHF {{ box.source.value|number_format(0, '.', '\'') }}</bold></p>
+        <p>currently on Account</p>
     </div>
 {% endmacro %}
 
 {% macro logo(box) %}
-    <dtitle>{{ box.source.title }}</dtitle>
-    <hr>
     <div class="cont">
         <p><img src="{{ asset(box.source.value) }}" alt="Picture" /></p>
     </div>
+{% endmacro %}
+
+{% macro twitter(box) %}
+    <dtitle>{{ box.source.title }}</dtitle>
+    <hr>
+    {% if box.source.type == 'tweets' %}
+        <div class="info-user">
+            <span aria-hidden="true" class="li_megaphone fs2"></span>
+        </div>
+        <br>
+        <div id="jstwitter" class="clearfix">
+            <ul id="twitter_update_list"></ul>
+        </div>
+        <div class="text">
+            {% for tweet in box.source.value %}
+                <p><grey>{{ tweet.text }}</grey></p>
+            {% endfor %}
+        </div>
+    {% elseif box.source.type == 'followers' %}
+        <div class="cont">
+            <p><bold>{{ box.source.value|number_format(0, ',', '.') }} Followers</bold></p>
+            <p>@{{ box.source.username }}</p>
+        </div>
+    {% endif %}
 {% endmacro %}
 
 {% macro unknown(box) %}

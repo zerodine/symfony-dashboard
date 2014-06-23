@@ -67,3 +67,8 @@ assetic:
 #    username:  "%mailer_user%"
 #    password:  "%mailer_password%"
 #    spool:     { type: memory }
+
+black_optic_xero:
+    consumer_key: "%xero_consumer_key%"
+    consumer_secret: "%xero_consumer_secret%"
+    private_key: "%xero_private_key%"
