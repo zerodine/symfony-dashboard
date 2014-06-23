@@ -17,6 +17,7 @@ class AppKernel extends Kernel
             new BlackOptic\Bundle\XeroBundle\BlackOpticXeroBundle(),
 
             new Zerodine\DashboardBundle\ZerodineDashboardBundle(),
+            new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

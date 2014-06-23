@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Thomas Spycher - Zerodine">
     <!-- stylesheets -->
-    {% stylesheets '../app/Resources/public/css/*' filter="cssrewrite" %}
+    {% stylesheets 'css/*' filter="cssrewrite" %}
         <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
     {% endstylesheets %}
 
@@ -20,12 +20,6 @@
     {% endstylesheets %}
 
     <!-- end -->
-    {% javascripts
-        "http://code.jquery.com/jquery-latest.js"
-        "http://html5shim.googlecode.com/svn/trunk/html5.js"
-        %}
-        <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
 
 
     <style type="text/css">
@@ -40,7 +34,7 @@
 
     <!-- Le fav and touch icons -->
     {% block icons %}
-        <link rel="shortcut icon" href="{{ asset('../app/Resources/public/img/logo.png') }}">
+        <link rel="shortcut icon" href="{{ asset('img/logo.png') }}">
     {% endblock %}
 
     <!-- Google Fonts call. Font Used Open Sans & Raleway -->
@@ -93,18 +87,19 @@
 <!-- Placed at the end of the document so the pages load faster -->
 
 {% javascripts
-    "../app/Resources/public/js/bootstrap.js"
-    "../app/Resources/public/js/lineandbars.js"
-    "../app/Resources/public/js/dash-charts.js"
-    "../app/Resources/public/js/gauge.js"
-    "../app/Resources/public/js/noty/jquery.noty.js"
-    "../app/Resources/public/js/noty/layouts/top.js"
-    "../app/Resources/public/js/noty/layouts/topLeft.js"
-    "../app/Resources/public/js/noty/layouts/topRight.js"
-    "../app/Resources/public/js/noty/layouts/topCenter.js"
-    "../app/Resources/public/js/noty/themes/default.js"
-    "../app/Resources/public/js/jquery.flexslider.js"
-    "../app/Resources/public/js/admin.js"
+    "js/jquery.js"
+    "js/bootstrap.js"
+    "js/lineandbars.js"
+    "js/dash-charts.js"
+    "js/gauge.js"
+    "js/noty/jquery.noty.js"
+    "js/noty/layouts/top.js"
+    "js/noty/layouts/topLeft.js"
+    "js/noty/layouts/topRight.js"
+    "js/noty/layouts/topCenter.js"
+    "js/noty/themes/default.js"
+    "js/jquery.flexslider.js"
+    "js/admin.js"
     %}
     <script src="{{ asset_url }}" type="text/javascript"></script>
 {% endjavascripts %}
