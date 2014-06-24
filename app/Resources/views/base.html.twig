@@ -19,6 +19,10 @@
         <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
     {% endstylesheets %}
 
+    {% javascripts "js/jquery.js" %}
+    <script src="{{ asset_url }}" type="text/javascript"></script>
+    {% endjavascripts %}
+
     <!-- end -->
 
 
@@ -87,10 +91,8 @@
 <!-- Placed at the end of the document so the pages load faster -->
 
 {% javascripts
-    "js/jquery.js"
     "js/bootstrap.js"
     "js/lineandbars.js"
-    "js/dash-charts.js"
     "js/gauge.js"
     "js/noty/jquery.noty.js"
     "js/noty/layouts/top.js"
@@ -100,6 +102,7 @@
     "js/noty/themes/default.js"
     "js/jquery.flexslider.js"
     "js/admin.js"
+    "http://code.highcharts.com/highcharts.js"
     %}
     <script src="{{ asset_url }}" type="text/javascript"></script>
 {% endjavascripts %}

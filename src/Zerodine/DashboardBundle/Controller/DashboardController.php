@@ -28,10 +28,9 @@ class DashboardController extends Controller
         $boxes[] = Box::getInstance(new TwitterSource($this->get('dashboard_twitter')))->setStyle(Box::DASHUNIT);
 
         $boxes[] = Box::getInstance(new TwitterSource($this->get('dashboard_twitter'), TwitterSource::FOLLOWERS))->setStyle(Box::HALFUNIT);
-        $boxes[] = Box::getInstance(new FinanceSource($this->get('blackoptic.xero.client')))->setStyle(Box::HALFUNIT);
-
-        $boxes[] = Box::getInstance(new LinesofcodeSource('php'))->setStyle(Box::HALFUNIT);
-        $boxes[] = Box::getInstance(new LinesofcodeSource('python'))->setStyle(Box::HALFUNIT);
+        $f = new FinanceSource($this->get('blackoptic.xero.client'));
+        $f->setGoal(20000);
+        $boxes[] = Box::getInstance($f)->setStyle(Box::DASHUNIT);
 
         $boxes[] = Box::getInstance(new LogoSource('http://zerodine.com/wp-content/uploads/2014/06/vertical_500px_png_bw_w-300x158.png'))
             ->setStyle(Box::HALFUNIT)
@@ -39,6 +38,9 @@ class DashboardController extends Controller
         $boxes[] = Box::getInstance(new TimeSource())->setStyle(Box::HALFUNIT);
 
         // next Row
+        $boxes[] = Box::getInstance(new LinesofcodeSource('php'))->setStyle(Box::HALFUNIT);
+        $boxes[] = Box::getInstance(new LinesofcodeSource('python'))->setStyle(Box::HALFUNIT);
+
         $boxes[] = Box::getInstance(new LinesofcodeSource('commits', 'commits'))->setStyle(Box::HALFUNIT);
 
         return array('boxes' => $boxes);

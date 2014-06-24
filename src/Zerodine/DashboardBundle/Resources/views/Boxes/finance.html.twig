@@ -1,6 +1,55 @@
 <dtitle>{{ box.source.title }}</dtitle>
 <hr>
 <div class="cont">
-    <p><bold>CHF {{ box.source.value|number_format(0, '.', '\'') }}</bold></p>
-    <p>currently on Account</p>
+    {% if box.source.type == 'goal' %}
+        <script type="text/javascript">
+            var _percent = {{ box.source.goalPercent|number_format(1, '.', '')|raw }};
+            var _percent_fill = {{ (100 - box.source.goalPercent)|number_format(1, '.', '')|raw }};
+            {% raw %}
+            $(document).ready(function() {
+                info = new Highcharts.Chart({
+                    chart: {
+                        renderTo: 'load',
+                        margin: [0, 0, 0, 0],
+                        backgroundColor: null,
+                        plotBackgroundColor: 'none'
+                    },
+                    title: {
+                        text: null
+                    },
+                    tooltip: {
+                        formatter: function() {
+                            return this.point.name +': '+ this.y +' %';
+                        }
+                    },
+                    series: [
+                        {
+                            borderWidth: 2,
+                            borderColor: '#F1F3EB',
+                            shadow: false,
+                            type: 'pie',
+                            name: 'Income',
+                            innerSize: '65%',
+                            data: [
+                                { name: 'load percentage', y: _percent , color: '#b2c831' },
+                                { name: 'rest', y: _percent_fill , color: '#3d3d3d' }
+                            ],
+                            dataLabels: {
+                                enabled: false,
+                                color: '#000000',
+                                connectorColor: '#000000'
+                            }
+                        }]
+                });
+            });
+            {% endraw %}
+        </script>
+
+        <div id="load"></div>
+        <h2>{{ box.source.goalPercent }}%</h2>
+        <p>CHF {{ box.source.value|number_format(0, '.', '\'') }}</p>
+    {% else %}
+        <p><bold>CHF {{ box.source.value|number_format(0, '.', '\'') }}</bold></p>
+        <p>currently on Account</p>
+    {% endif %}
 </div>

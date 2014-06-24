@@ -12,9 +12,43 @@ namespace Zerodine\DashboardBundle\Boxes\Sources;
 class FinanceSource implements SourceInterface {
 
     protected $client;
+    protected $type;
+    protected $goal = 0;
 
-    function __construct($client) {
+    const FINANCE_GOAL = 'goal';
+    const FINANCE_ACCOUNT = 'account';
+
+    function __construct($client, $type = FinanceSource::FINANCE_GOAL) {
         $this->client = $client;
+        $this->type = $type;
+    }
+
+    /**
+     * @param int $goal
+     */
+    public function setGoal($goal)
+    {
+        $this->goal = $goal;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getGoal()
+    {
+        return $this->goal;
+    }
+
+    public function getGoalPercent() {
+        return 100 / $this->goal * $this->getValue();
+    }
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 
     public function getMacroname()
